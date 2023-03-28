@@ -4,6 +4,7 @@ for (let i = 0; i < pacientes.length; i++) {
   let peso = pacientes[i].querySelector(".info-peso").textContent;
   let altura = pacientes[i].querySelector(".info-altura").textContent;
   let tdImc = pacientes[i].querySelector(".info-imc");
+
   let pesoValido = validaPeso(peso);
   let alturaValida = validaAltura(altura);
 
