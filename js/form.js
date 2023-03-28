@@ -6,10 +6,10 @@ botaoAdicionar.addEventListener("click", function (event) {
   let paciente = obtemPacieteDoFormulario(form);
   let pacienteTr = montaTr(paciente);
   const erros = validaPaciente(paciente);
+  console.log(erros);
 
   if (erros.length > 0) {
-    const mensagemSpam = document.querySelector("#mensagem-erro");
-    mensagemSpam.textContent = erros;
+    exibeMensagensDeErro(erros);
     form.reset();
     return;
   }
@@ -59,4 +59,13 @@ function validaPaciente(paciente) {
   if (!validaAltura(paciente.altura)) erros.push("A altura é inválida");
 
   return erros;
+}
+
+function exibeMensagensDeErro(erros) {
+  const ul = document.querySelector("#mensagens-erro");
+  erros.forEach(function (erro) {
+    const li = document.createElement("li");
+    li.textContent = erro;
+    ul.appendChild(li);
+  });
 }
